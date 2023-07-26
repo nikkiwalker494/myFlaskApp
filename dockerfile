@@ -6,12 +6,12 @@ WORKDIR /app
 
 # Add the current directory contents into the container at /app
 COPY . .
-
+RUN pip config set global.cert /app/combined_certs.pem
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
 ## Make port 5000 available to the world outside this container
-#EXPOSE 5000
+EXPOSE 5000
 
 # Run app.py when the container launches
-CMD ["python", "run.py"]
+CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
