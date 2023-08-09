@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:latest
+FROM harbor.mgmt-bld.oncp.dev/staging_base_images/python:3.10.6-alpine3.16
 
 # Set the working directory in the container to /app
 WORKDIR /app
